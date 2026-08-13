@@ -1,0 +1,30 @@
+title: Suspicious PowerShell Process Creation
+id: 8d3f5e7c-2a91-4c6f-9b42-1e7d8a5f3c20
+status: experimental
+description: Detects PowerShell process creation with suspicious command-line indicators.
+author: Sepehr
+date: 2026/08/13
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith:
+            - '\powershell.exe'
+            - '\pwsh.exe'
+    suspicious_args:
+        CommandLine|contains:
+            - '-enc'
+            - '-encodedcommand'
+            - 'bypass'
+            - 'hidden'
+            - 'iex'
+            - 'invoke-expression'
+    condition: selection and suspicious_args
+falsepositives:
+    - Legitimate administrative PowerShell scripts
+    - Security testing and automation
+level: medium
+tags:
+    - attack.execution
+    - attack.t1059.001
