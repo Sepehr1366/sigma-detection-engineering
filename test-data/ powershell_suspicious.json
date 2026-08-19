@@ -1,0 +1,8 @@
+{
+  "EventID": 4688,
+  "Computer": "LAB-WINDOWS",
+  "User": "LAB\\sepehr",
+  "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "CommandLine": "powershell.exe -NoProfile -EncodedCommand SQBFAFgA",
+  "ParentImage": "C:\\Windows\\System32\\cmd.exe"
+}
